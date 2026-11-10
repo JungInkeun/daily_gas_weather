@@ -22,6 +22,8 @@ class TellMeGasDieselPrice:
                 gas_price = station.get("available_fuels")['regular_gas']
                 if name in gas_data_dict:
                     exist_price = gas_data_dict[name]['regular_gas']
+                    if gas_price==0:
+                        continue
                     if gas_price < exist_price:
                         gas_data_dict[name]={
                             'postal_code': code,
