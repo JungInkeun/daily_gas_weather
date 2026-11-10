@@ -6,7 +6,7 @@ import requests
 
 # 메시지 정리
 def msg(gasoline_lowest_price, gasoline_text, diesel_text, feel_lowest_temp, weather_msg):
-    message = f"""Gas Price : {gasoline_lowest_price} Feel like min : {feel_lowest_temp}"""
+    message = f"""Gas Price : ${gasoline_lowest_price} Feel like min : {feel_lowest_temp}C"""
 
 
     # 이메일 설정
