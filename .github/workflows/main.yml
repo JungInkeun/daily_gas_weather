@@ -6,7 +6,7 @@ on:
       - main           # main 브랜치에 push 될 때 실행
   workflow_dispatch:   # 수동 실행 가능
   schedule:
-    - cron: '*/15 * * * *'   # 오전 9시
+    - cron: '*/30 * * * *'   
 
 jobs:
   run-app:
