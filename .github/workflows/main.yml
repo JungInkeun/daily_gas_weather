@@ -1,30 +1,32 @@
-name: Daily Gas and Weather
+name: Run app.py test
 
 on:
+  push:
+    branches:
+      - main           # main 브랜치에 push 될 때 실행
+  workflow_dispatch:   # 수동 실행 가능
   schedule:
-    - cron: "*/20 * * * *"
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    - cron: '*/15 * * * *'   # 오전 9시
 
 jobs:
   run-app:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12.x'
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Run main.py
+      - name: Run script
+        run: python app.py
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: python main.py
