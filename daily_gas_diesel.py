@@ -15,7 +15,7 @@ class TellMeGasDieselPrice:
     
     def get_gas_price(self, stations):
         gas_data_dict = {}
-        for station in stations[:5]:
+        for station in stations:
             try:
                 name = station['name'].split()[0]
                 code = station['postal_code']
@@ -41,7 +41,7 @@ class TellMeGasDieselPrice:
 
     def get_diesel_price(self, stations):
         diesel_data_dict = {}
-        for station in stations[:5]:
+        for station in stations:
             try:
                 name = station['name'].split()[0]
                 code = station['postal_code']
