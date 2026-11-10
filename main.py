@@ -38,11 +38,12 @@ diesel = gas_data.get_diesel_price(stations)
 diesel_list = gas_data.sorted_price(diesel, 'diesel_price')
 gasoline_list = gas_data.sorted_price(gasoline, 'regular_gas')
 gasoline_lowest_price = gasoline_list[list(gasoline_list.keys())[0]]['regular_gas'] #가솔린 최저가
+costco_price = gas_data.get_costco_price(stations)
 
 gasoline_text, diesel_text = gas_data.get_string(gasoline_list, diesel_list)
 
 #메일발송
-msg(gasoline_lowest_price, gasoline_text, diesel_text, feel_lowest_temp, weather_msg)
+msg(costco_price, gasoline_lowest_price, gasoline_text, diesel_text, feel_lowest_temp, weather_msg)
 
 
 

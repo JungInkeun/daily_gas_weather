@@ -13,6 +13,13 @@ class TellMeGasDieselPrice:
 
         return stations
     
+    def get_costco_price(self, stations):
+        costco_gas_price = 0
+        for station in stations:
+            if 'Costco R3Y' in station['name']:
+                costco_gas_price = station['available_fuels']['regular_gas']
+        return costco_gas_price
+
     def get_gas_price(self, stations):
         gas_data_dict = {}
         for station in stations:
@@ -50,7 +57,6 @@ class TellMeGasDieselPrice:
                 diesel_price = station.get("available_fuels")['diesel']
                 if diesel_price==0:
                     continue
-                # print(f"{idx} {name} : {code} : ${diesel_price}")
                 if name in diesel_data_dict:
                     exist_price = diesel_data_dict[name]['diesel_price']
                     if diesel_price < exist_price:

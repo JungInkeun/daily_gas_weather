@@ -5,12 +5,12 @@ import os
 import requests
 
 # 메시지 정리
-def msg(gasoline_lowest_price, gasoline_text, diesel_text, feel_lowest_temp, weather_msg):
+def msg(costco_price, gasoline_lowest_price, gasoline_text, diesel_text, feel_lowest_temp, weather_msg):
     message = f"""Gas Price : ${gasoline_lowest_price} Feel like min : {feel_lowest_temp}C"""
 
-
+    costco_body = f"Costco Kenaston Price : ${costco_price}"
     # 이메일 설정
-    msg = MIMEText(message+"\n\n"+gasoline_text+"\n\n"+diesel_text+"\n\n"+weather_msg)
+    msg = MIMEText(message+"\n\n"+costco_body+"\n\n"+gasoline_text+"\n\n"+diesel_text+"\n\n"+weather_msg)
     msg['Subject'] = f"Gas Price : ${gasoline_lowest_price} Feel like min : {feel_lowest_temp}C"
     msg['From'] = "imw200814@gmail.com"           # 보내는 사람
     msg['To'] = "imw200814@gmail.com"           # 받는 사람
