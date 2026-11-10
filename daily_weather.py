@@ -26,7 +26,7 @@ async def run_weather():
     return current, daily
 
 def weather_body(current, daily):
-    message_body = f"""📍 Grosse Isle Weather Info
+    message_body = f"""📍 Grosse Isle Weather Info at 7 AM
     🌡️ Current Temp: {current.temperature_2m}°C
     💨 Current Wind Speed: {current.wind_speed_10m} km/h
     """
